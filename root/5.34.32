@@ -1,0 +1,37 @@
+#%Module 1.0
+#
+#  Root v5.34.32 module for use with 'environment-modules' package:
+# 
+set _module_name  [module-info name]
+set is_module_rm  [module-info mode remove]
+set sys        [uname sysname]
+set os         [uname release]
+
+set version     v5.34.32
+
+set ROOT_LEVEL $version
+set ROOT_CURRPATH /home/vincent/programs/root/$ROOT_LEVEL
+
+prepend-path PATH                    $ROOT_CURRPATH/bin
+prepend-path MANPATH             $ROOT_CURRPATH/share/man
+prepend-path INFOPATH             $ROOT_CURRPATH/share/info
+prepend-path LD_LIBRARY_PATH $ROOT_CURRPATH/lib/root
+prepend-path PYTHONPATH        $ROOT_CURRPATH/lib/root
+
+setenv ROOT_PATH      $ROOT_CURRPATH
+setenv ROOT_VERSION $ROOT_LEVEL
+
+setenv ROOTSYS $ROOT_CURRPATH
+
+proc ModulesHelp { } {
+  puts stderr " The ROOT system provides a set of OO frameworks with all"
+  puts stderr " the functionality needed to handle and analyze large amounts"
+  puts stderr " of data in a very efficient way. Having the data defined as"
+  puts stderr " a set of objects, specialized storage methods are used to get"
+  puts stderr " direct access to the separate attributes of the selected"
+  puts stderr " objects, without having to touch the bulk of the data."
+  puts stderr "-----------"
+}
+
+module-whatis   "ROOT analysis framework ($ROOT_LEVEL)"
+

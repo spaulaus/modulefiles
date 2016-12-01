@@ -1,0 +1,31 @@
+#%Module 1.0
+#
+#  CLHEP-git module for use with 'environment-modules' package:
+# 
+set _module_name  [module-info name]
+set is_module_rm  [module-info mode remove]
+set sys        [uname sysname]
+set os         [uname release]
+
+set version     
+
+set CLHEP_LEVEL $version
+set CLHEP_CURRPATH /home/vincent/programs/clhep/$CLHEP_LEVEL
+
+prepend-path PATH            $CLHEP_CURRPATH/bin
+prepend-path LD_LIBRARY_PATH $ROOT_CURRPATH/lib
+
+setenv CLHEP_PATH    $ROOT_CURRPATH
+setenv CLHEP_VERSION $ROOT_LEVEL
+
+setenv CLHEPSYS $CLHEP_CURRPATH
+
+proc ModulesHelp { } {
+  puts stderr " CLHEP is a class library for High Energy Physics. It is intended to "
+  puts stderr " be a set of HEP-specific foundation and utility classes such as random"
+  puts stderr "generators, physics vectors, geometry, and linear algebra."
+  puts stderr "-----------"
+}
+
+module-whatis   "CLHEP  ($ROOT_LEVEL)"
+
