@@ -7,10 +7,10 @@ set is_module_rm  [module-info mode remove]
 set sys        [uname sysname]
 set os         [uname release]
 
-set version v6-07-06-861-gff518af
+set version v6-11-02-1447-g38586de
 
 set ROOT_LEVEL $version
-set ROOT_CURRPATH /home/vincent/programs/root/$ROOT_LEVEL
+set ROOT_CURRPATH /opt/root/$ROOT_LEVEL
 
 prepend-path PATH            $ROOT_CURRPATH/bin
 prepend-path MANPATH         $ROOT_CURRPATH/share/man

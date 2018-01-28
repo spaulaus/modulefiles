@@ -1,0 +1,28 @@
+#%Module 1.0
+#Module file that loads GSL 2.4. 
+#Written by S. V. Paualuskas
+#January 23, 2018
+
+set _module_name  [module-info name]
+set is_module_rm  [module-info mode remove]
+set sys        [uname sysname]
+set os         [uname release]
+
+set version 2.4
+
+set GSL_CURRPATH /opt/gsl/2.4/
+
+#Prepend all of these to the paths so that they will be searched first.
+prepend-path    PATH                    $GSL_CURRPATH/bin
+prepend-path    CPLUS_INCLUDE_PATH      $GSL_CURRPATH/include
+prepend-path    LD_LIBRARY_PATH         $GSL_CURRPATH/lib
+prepend-path    MANPATH                 $GSL_CURRPATH/share/man
+prepend-path    LIBARAY_PATH            $GSL_CURRPATH/lib
+
+proc ModulesHelp { } {
+        global version modroot
+        puts stderr "Sets GSL 2.4 as default"
+}
+
+module-whatis   "GNU Scientific Library version 2.4"
+
